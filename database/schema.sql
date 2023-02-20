@@ -1,0 +1,2 @@
+-- //id, title, image, price, desc,
+--fruits
