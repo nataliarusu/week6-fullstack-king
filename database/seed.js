@@ -1,6 +1,7 @@
 //id, title, image, price, desc, type: ref field
 // type, id, name
 
+
 const { readFileSync } = require("node:fs");
 const { join } = require("node:path");
 const db = require("./db.js");

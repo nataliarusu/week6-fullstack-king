@@ -2,7 +2,6 @@
 //more info on the fruit like description, price and add to cart option
 //need to import image 
 
-import React from "react";
 import Image from "next/image";
 
 export default function Fruitpage({props}) {
