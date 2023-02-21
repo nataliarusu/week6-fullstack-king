@@ -1,9 +1,8 @@
 import Image from 'next/image';
-import Link from 'next/link';
 
 export default function FruitItem(props) {
   return (
-    <li id={props.key}>
+    <li id={props.id}>
       <h3>{props.title}</h3>
       <div>
         <div>
