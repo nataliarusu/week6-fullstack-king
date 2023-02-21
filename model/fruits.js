@@ -11,9 +11,9 @@ const select_all_fruits = db.prepare(
     fruits.title,
     fruits.image_path,
     fruits.price,
-    fruits.fruits_description,
-    fruits_types.name AS ftype 
-    FROM fruits JOIN fruits_types 
+    fruits.fruit_description,
+    fruit_types.name AS ftype 
+    FROM fruits JOIN fruit_types 
     WHERE fruits.id = fruit_types.id
 `
 );
@@ -33,9 +33,9 @@ SELECT
   fruits.title,
   fruits.image_path,
   fruits.price,
-  fruits.fruits_description,
-  fruits_types.name AS ftype 
-  FROM fruits JOIN fruits_types 
+  fruits.fruit_description,
+  fruit_types.name AS ftype 
+  FROM fruits JOIN fruit_types 
   WHERE id = ?
 `
 );
@@ -52,9 +52,9 @@ SELECT
   fruits.title,
   fruits.image_path,
   fruits.price,
-  fruits.fruits_description,
-  fruits_types.name AS ftype 
-  FROM fruits JOIN fruits_types 
+  fruits.fruit_description,
+  fruit_types.name AS ftype 
+  FROM fruits JOIN fruit_types 
   WHERE fruits.type = ?
 `
 );
