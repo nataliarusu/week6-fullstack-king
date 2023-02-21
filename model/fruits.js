@@ -3,9 +3,6 @@ import db from '../database/db.js';
 // logic from fruits table
 // everything about fruits
 
-// list all fruits per type
-// db.prepare
-
 const select_all_fruits = db.prepare(
   /*sql*/
   `
@@ -43,11 +40,6 @@ SELECT
 export function getFruitById(id) {
   return select_fruit_by_id.get(id);
 }
-
-// export function to get fruits
-// return get fruits.get(id)
-
-// how to get only one type of fruit
 
 const select_fruit_by_type = db.prepare(
   /*sql*/
