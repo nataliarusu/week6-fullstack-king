@@ -7,7 +7,7 @@ export default function FruitList(props) {
       <FruitItem
         key={fruit.id}
         title={fruit.title}
-        image={fruit.image}
+        image={fruit.image_path}
         price={fruit.price}
         link={fruit.link} //generated in pages [fruit_id]
       />

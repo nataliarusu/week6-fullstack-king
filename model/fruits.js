@@ -1,4 +1,4 @@
-import db from '../database/db.js';
+import db from '../database/db';
 
 // logic from fruits table
 // everything about fruits
@@ -21,6 +21,9 @@ const select_all_fruits = db.prepare(
 export function getAllFruits() {
   return select_all_fruits.all();
 }
+
+const fruits = getAllFruits();
+console.log(fruits);
 
 const select_fruit_by_id = db.prepare(
   /*sql*/
