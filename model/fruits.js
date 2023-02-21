@@ -1,7 +1,4 @@
-import db from '../database/db';
-
-// logic from fruits table
-// everything about fruits
+import db from '../database/db.js';
 
 const select_all_fruits = db.prepare(
   /*sql*/
@@ -14,7 +11,7 @@ const select_all_fruits = db.prepare(
     fruits.fruit_description,
     fruit_types.name AS ftype 
     FROM fruits JOIN fruit_types 
-    WHERE fruits.id = fruit_types.id
+    ON fruits.fruit_type = fruit_types.id
 `
 );
 
@@ -23,7 +20,7 @@ export function getAllFruits() {
 }
 
 const fruits = getAllFruits();
-console.log(fruits);
+console.log(fruits, ' fruits');
 
 const select_fruit_by_id = db.prepare(
   /*sql*/
@@ -36,13 +33,15 @@ SELECT
   fruits.fruit_description,
   fruit_types.name AS ftype 
   FROM fruits JOIN fruit_types 
-  WHERE id = ?
+  WHERE fruits.id = ?
 `
 );
 
 export function getFruitById(id) {
   return select_fruit_by_id.get(id);
 }
+const byId = getFruitById(2);
+console.log(byId, ' fruitsId');
 
 const select_fruit_by_type = db.prepare(
   /*sql*/
@@ -55,10 +54,14 @@ SELECT
   fruits.fruit_description,
   fruit_types.name AS ftype 
   FROM fruits JOIN fruit_types 
-  WHERE fruits.type = ?
+  ON fruits.fruit_type = fruit_types.id
+  WHERE fruit_types.name = ?
 `
 );
 
 export function getFruitByType(type) {
   return select_fruit_by_type.all(type);
 }
+
+const types = getFruitByType('Berries');
+console.log(types, ' types');

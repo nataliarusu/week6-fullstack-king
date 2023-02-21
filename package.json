@@ -2,6 +2,7 @@
   "name": "week6-fullstack-king",
   "version": "0.1.0",
   "private": true,
+  "type":"module",
   "scripts": {
     "seed": "DB_FILE=db.sqlite node database/seed.js",
     "dev": "next dev",
