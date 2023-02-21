@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS fruits (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   title TEXT,
   image_path TEXT ,
-  price NUMBER,
+  price DECIMAL,
   fruit_description TEXT,
   fruit_type INTEGER REFERENCES fruit_types(id)
   
