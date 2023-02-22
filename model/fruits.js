@@ -65,3 +65,16 @@ export function getFruitByType(type) {
 
 const types = getFruitByType('Berries');
 console.log(types, ' types');
+
+const select_all_ids = db.prepare(
+  /*sql*/
+  `
+  SELECT 
+    id
+    FROM fruits 
+`
+);
+
+export function getAllIds() {
+  return select_all_ids.all();
+}
