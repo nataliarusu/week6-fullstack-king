@@ -19,9 +19,6 @@ export function getAllFruits() {
   return select_all_fruits.all();
 }
 
-const fruits = getAllFruits();
-console.log(fruits, ' fruits');
-
 const select_fruit_by_id = db.prepare(
   /*sql*/
   `
@@ -40,8 +37,6 @@ SELECT
 export function getFruitById(id) {
   return select_fruit_by_id.get(id);
 }
-const byId = getFruitById(2);
-console.log(byId, ' fruitsId');
 
 const select_fruit_by_type = db.prepare(
   /*sql*/
@@ -62,9 +57,6 @@ SELECT
 export function getFruitByType(type) {
   return select_fruit_by_type.all(type);
 }
-
-const types = getFruitByType('Berries');
-console.log(types, ' types');
 
 const select_all_ids = db.prepare(
   /*sql*/

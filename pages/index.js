@@ -5,7 +5,6 @@ import FruitList from '@/components/FruitList';
 import { getAllFruits } from '@/model/fruits.js';
 
 export default function Home({ fruit_data }) {
-  console.log(fruit_data);
   return (
     <>
       <Head>
@@ -13,8 +12,6 @@ export default function Home({ fruit_data }) {
       </Head>
       <div>
         <FruitList fruits={fruit_data} />
-        <Link href="/fruits/berries">Berries</Link>
-        <Link href="/fruits/citrus">Citrus</Link>
       </div>
     </>
   );
@@ -22,7 +19,6 @@ export default function Home({ fruit_data }) {
 
 export async function getStaticProps() {
   const allFruits = await getAllFruits();
-  console.log(allFruits, 'fruits!!!');
 
   return {
     props: {
