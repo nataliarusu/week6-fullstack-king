@@ -1,5 +1,7 @@
 import { useContext, useState } from 'react';
 import ctx from '@/store/ctx-obj';
+import Card from './Card';
+import classes from './Cart.module.css';
 
 export default function Cart() {
   const cartCTX = useContext(ctx);
@@ -7,17 +9,17 @@ export default function Cart() {
   const items = cartCTX.items;
 
   return (
-    <div>
-      <h1>Cart</h1>
-      <ul>
+    <Card className={classes['cart-wrapper']}>
+      <h1 className={classes.title}>Cart</h1>
+      <ul className={classes['cart-list']}>
         {items.map((el) => (
-          <li key={el.id + Math.random()}>
+          <li key={el.id + Math.random()} className={classes['cart-item']}>
             <p>{el.title}</p>
             <p>items: {el.items}</p>
           </li>
         ))}
       </ul>
-      <p>£ {cartCTX.totalAmount.toFixed(2)}</p>
-    </div>
+      <p className={classes.total}>Total: £ {cartCTX.totalAmount.toFixed(2)}</p>
+    </Card>
   );
 }
