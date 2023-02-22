@@ -1,0 +1,21 @@
+.cart-wrapper {
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: 10px;
+  color: black;
+}
+.title {
+  text-align: center;
+}
+.cart-list {
+  list-style: none;
+}
+
+.cart-item {
+  border-bottom: 1px solid gray;
+  padding: 0.5rem;
+}
+
+.total {
+  font-weight: 700;
+}
