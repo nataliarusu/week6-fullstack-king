@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Head from 'next/head';
 import FruitList from '@/components/FruitList';
-//import fruits from '@/lib/data';
+import Cart from '@/components/Cart';
 import { getAllFruits } from '@/model/fruits.js';
 
 export default function Home({ fruit_data }) {

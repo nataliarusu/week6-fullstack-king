@@ -4,10 +4,16 @@
 
 import Image from 'next/image';
 import Button from './Button';
+import ctx from '@/store/ctx-obj';
+import React from 'react';
+import { useContext } from 'react';
 
 export default function Fruitpage(props) {
+  const cartCTX = useContext(ctx);
   const addToBasket = () => {
     console.log('added to basket ', props);
+
+    cartCTX.addItem(props);
   };
   return (
     <>
