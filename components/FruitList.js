@@ -1,15 +1,15 @@
 import FruitItem from './FruitItem';
 
 export default function FruitList(props) {
-  //array => [{id, title, ...},{}]
   return props.fruits.map((fruit) => {
     return (
       <FruitItem
         key={fruit.id}
+        id={fruit.id}
         title={fruit.title}
-        image={fruit.image}
+        image={fruit.image_path}
         price={fruit.price}
-        link={fruit.link} //generated in pages [fruit_id]
+        link={`/fruits/${fruit.id}`}
       />
     );
   });

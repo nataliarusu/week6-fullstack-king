@@ -1,20 +1,28 @@
 import Link from 'next/link';
 import Head from 'next/head';
-import { Inter } from '@next/font/google';
-import styles from '@/styles/Home.module.css';
+import FruitList from '@/components/FruitList';
+//import fruits from '@/lib/data';
+import { getAllFruits } from '@/model/fruits.js';
 
-const inter = Inter({ subsets: ['latin'] });
-
-export default function Home() {
+export default function Home({ fruit_data }) {
   return (
     <>
       <Head>
         <title>Home</title>
       </Head>
       <div>
-        <Link href="./fruits/berries">Berries</Link>
-        <Link href="./fruits/citrus">Citrus</Link>
+        <FruitList fruits={fruit_data} />
       </div>
     </>
   );
+}
+
+export async function getStaticProps() {
+  const allFruits = await getAllFruits();
+
+  return {
+    props: {
+      fruit_data: allFruits,
+    },
+  };
 }
