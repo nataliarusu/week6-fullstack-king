@@ -1,8 +1,10 @@
 import FruitItem from './FruitItem';
 
+import classes from './FruitList.module.css';
+
 export default function FruitList(props) {
   return (
-    <ul>
+    <ul className={classes.ul}>
       {props.fruits.map((fruit) => {
         return (
           <FruitItem

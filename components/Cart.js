@@ -1,5 +1,8 @@
+//iman, making the shopping cart look more presentable with css and moving around the content
+
 import { useContext, useState } from 'react';
 import ctx from '@/store/ctx-obj';
+import classes from './Cart.module.css';
 
 export default function Cart() {
   const cartCTX = useContext(ctx);
@@ -7,13 +10,13 @@ export default function Cart() {
   const items = cartCTX.items;
 
   return (
-    <div>
-      <h1>Cart</h1>
+    <div className={classes.div}>
+      <h1 className={classes.header}>Cart</h1>
       <ul>
         {items.map((el) => (
           <li key={el.id + Math.random()}>
             <p>{el.title}</p>
-            <p>items: {el.items}</p>
+            <p>{el.items}x</p>
           </li>
         ))}
       </ul>
