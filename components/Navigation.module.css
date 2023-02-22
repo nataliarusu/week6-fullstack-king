@@ -37,3 +37,20 @@
 .header a.active {
   color: white;
 }
+
+.nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.cart-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.2rem;
+  border: 2px solid white;
+  color: white;
+  background: transparent;
+  border-radius: 4px;
+}
