@@ -14,9 +14,8 @@ export default function FruitItem(props) {
   };
 
   return (
-    <Card>
-    <div className={classes.fruitlistitem}>
-    <li id={props.id}>
+    <li className={classes.fruitlistitem} id={props.id}>
+      <Card>
       <h3 className={classes.heading}>{props.title}</h3>
       <div>
         <div>
@@ -28,8 +27,8 @@ export default function FruitItem(props) {
         <Link className={classes.info} href={props.link}>See more at {props.title}</Link>
       </div>
       <Button onClick={AddToBasketHandler}>Add to Cart</Button>
+      </Card>
     </li>
-    </div>
-    </Card>
+    
   );
 }

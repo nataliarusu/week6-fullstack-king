@@ -4,6 +4,8 @@ import { useContext } from 'react';
 import ctx from '@/store/ctx-obj';
 import Button from './Button';
 import classes from './Navigation.module.css';
+import Image from 'next/image';
+
 
 function Navigation(props) {
   const cartCTX = useContext(ctx);
@@ -27,7 +29,7 @@ function Navigation(props) {
         </ul>
         <Button onClick={props.onShowCart} className={classes['cart-button']}>
           <span>£ {cartCTX.totalAmount.toFixed(2)}</span>
-          <span>🛒</span>
+          <Image src= alt='shopping cart' width="150" height="150" />
         </Button>
       </nav>
     </header>
