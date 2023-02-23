@@ -30,7 +30,7 @@ export default function FruitItem(props) {
         </div>
         <div>
           <Link className={classes.info} href={props.link}>
-            See more at {props.title}
+            More info...
           </Link>
         </div>
         <Button onClick={AddToBasketHandler}>Add to Cart</Button>
