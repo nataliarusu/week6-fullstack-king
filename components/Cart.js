@@ -2,8 +2,9 @@ import { useContext } from 'react';
 import ctx from '@/store/ctx-obj';
 import Card from './Card';
 import classes from './Cart.module.css';
+import Button from './Button';
 
-export default function Cart() {
+export default function Cart(props) {
   const cartCTX = useContext(ctx);
   console.log(cartCTX, ' context in cart');
   const items = cartCTX.items;
@@ -24,6 +25,9 @@ export default function Cart() {
         <p>Cart is empty</p>
       )}
       <p className={classes.total}>Total: £ {cartCTX.totalAmount.toFixed(2)}</p>
+      <div>
+        <Button onClick={props.onShowCart}>Close</Button>
+      </div>
     </Card>
   );
 }

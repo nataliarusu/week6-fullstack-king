@@ -1,17 +1,12 @@
 //nav bar
 import Link from 'next/link';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import ctx from '@/store/ctx-obj';
 import Button from './Button';
 import classes from './Navigation.module.css';
 
-function Navigation() {
+function Navigation(props) {
   const cartCTX = useContext(ctx);
-  const [showCart, setShowCart] = useState(false);
-  const toggleShowCartHandler = () => {
-    setShowCart(!showCart);
-    console.log(showCart);
-  };
 
   return (
     <header className={classes.header}>
@@ -30,10 +25,7 @@ function Navigation() {
             <Link href="/fruits/citrus">Citrus</Link>
           </li>
         </ul>
-        <Button
-          onClick={toggleShowCartHandler}
-          className={classes['cart-button']}
-        >
+        <Button onClick={props.onShowCart} className={classes['cart-button']}>
           <span>£ {cartCTX.totalAmount.toFixed(2)}</span>
           <span>🛒</span>
         </Button>
