@@ -1,8 +1,9 @@
 .cart-wrapper {
-  max-width: 300px;
-  margin-left: auto;
-  margin-right: 10px;
+  position: absolute;
+  top: 5rem;
+  right: 5rem;
   color: black;
+  width: 300px;
 }
 .title {
   text-align: center;
