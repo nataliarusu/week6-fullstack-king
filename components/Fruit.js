@@ -7,6 +7,7 @@ import Button from './Button';
 import ctx from '@/store/ctx-obj';
 import React from 'react';
 import { useContext } from 'react';
+import classes from './Fruit.module.css';
 
 export default function Fruitpage(props) {
   const cartCTX = useContext(ctx);
@@ -16,7 +17,8 @@ export default function Fruitpage(props) {
     cartCTX.addItem(props);
   };
   return (
-    <>
+    <> 
+    <div className={classes.fruitpage} >
       <h1>{props.title}</h1>
       <div>
         <Image
@@ -30,9 +32,10 @@ export default function Fruitpage(props) {
         <p>{props.description}</p>
       </div>
       <div>
-        <p>£ {props.price}</p>
+        <p>£ {props.price.toFixed(2)}</p>
       </div>
       <Button onClick={addToBasket}>Add to Cart</Button>
+      </div>
     </>
   );
 }
