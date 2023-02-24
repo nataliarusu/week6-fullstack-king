@@ -2,9 +2,8 @@
 import Link from 'next/link';
 import { useContext } from 'react';
 import ctx from '@/store/ctx-obj';
-import Button from './Button';
+import Button from './UI/Button';
 import classes from './Navigation.module.css';
-import Image from 'next/image';
 
 function Navigation(props) {
   const cartCTX = useContext(ctx);
@@ -24,6 +23,11 @@ function Navigation(props) {
           </li>
           <li>
             <Link href="/fruits/citrus">Citrus</Link>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <Link href="/users/signup">Sign up</Link>
           </li>
         </ul>
         <Button onClick={props.onShowCart} className={classes['cart-button']}>

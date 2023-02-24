@@ -1,0 +1,9 @@
+.input label {
+  font-weight: bold;
+}
+
+.input input {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font: inherit;
+}

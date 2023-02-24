@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import ctx from '@/store/ctx-obj';
-import Card from './Card';
+import Card from './UI/Card';
 import classes from './Cart.module.css';
-import Button from './Button';
+import Button from './UI/Button';
 
 export default function Cart(props) {
   const cartCTX = useContext(ctx);

@@ -1,15 +1,15 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import Button from './Button';
 import React, { useContext } from 'react';
 import ctx from '@/store/ctx-obj';
 import classes from './FruitItem.module.css';
-import Card from './Card';
+import Card from './UI/Card';
+import FruitItemForm from './FruitItemForm';
 
 export default function FruitItem(props) {
   const cartCTX = useContext(ctx);
 
-  const AddToBasketHandler = () => {
+  const AddToCartHandler = () => {
     cartCTX.addItem(props);
   };
 
@@ -33,7 +33,7 @@ export default function FruitItem(props) {
             More info...
           </Link>
         </div>
-        <Button onClick={AddToBasketHandler}>Add to Cart</Button>
+        <FruitItemForm onAddToCart={AddToCartHandler} id={props.id} />
       </Card>
     </li>
   );
