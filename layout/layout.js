@@ -14,9 +14,9 @@ function Layout(props) {
     <CartProvider>
       <Navigation showCart={showCart} onShowCart={toggleShowCartHandler} />
       <main className="layout-main">{props.children}</main>
-      {showCart ? (
+      {showCart && (
         <Cart showCart={showCart} onShowCart={toggleShowCartHandler} />
-      ) : null}
+      )}
     </CartProvider>
   );
 }

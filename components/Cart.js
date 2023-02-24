@@ -17,7 +17,7 @@ export default function Cart(props) {
           {items.map((el) => (
             <li key={el.id + Math.random()} className={classes['cart-item']}>
               <p>{el.title}</p>
-              <p>items: {el.items}</p>
+              <p>items: {el.amount}</p>
             </li>
           ))}
         </ul>

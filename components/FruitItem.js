@@ -9,8 +9,10 @@ import FruitItemForm from './FruitItemForm';
 export default function FruitItem(props) {
   const cartCTX = useContext(ctx);
 
-  const AddToCartHandler = () => {
-    cartCTX.addItem(props);
+  const AddToCartHandler = (amount) => {
+    const item = { ...props, amount: Number(amount) };
+
+    cartCTX.addItem(item);
   };
 
   return (
