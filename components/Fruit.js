@@ -3,7 +3,7 @@
 //need to import image
 
 import Image from 'next/image';
-import Button from './UI/Button';
+import FruitItemForm from './FruitItemForm';
 import ctx from '@/store/ctx-obj';
 import React from 'react';
 import { useContext } from 'react';
@@ -11,10 +11,11 @@ import classes from './Fruit.module.css';
 
 export default function Fruitpage(props) {
   const cartCTX = useContext(ctx);
-  const addToBasket = () => {
-    console.log('added to basket ', props);
 
-    cartCTX.addItem(props);
+  const AddToCartHandler = (amount) => {
+    const item = { ...props, amount: Number(amount) };
+
+    cartCTX.addItem(item);
   };
   return (
     <>
@@ -34,7 +35,7 @@ export default function Fruitpage(props) {
         <div>
           <p>£ {props.price.toFixed(2)}</p>
         </div>
-        <Button onClick={addToBasket}>Add to Cart</Button>
+        <FruitItemForm onAddToCart={AddToCartHandler} id={props.id} />
       </div>
     </>
   );
