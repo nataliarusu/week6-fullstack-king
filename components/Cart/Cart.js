@@ -9,6 +9,13 @@ export default function Cart(props) {
   const cartCTX = useContext(ctx);
   const items = cartCTX.items;
   const isItemsInCart = items.length > 0;
+
+  const addItemHandler = (item) => {
+    cartCTX.addItem({ ...item, amount: 1 });
+  };
+  const removeItemHandler = (id) => {
+    cartCTX.removeItem(id);
+  };
   return (
     <Card className={classes['cart-wrapper']}>
       <h1 className={classes.title}>Cart</h1>
@@ -20,6 +27,8 @@ export default function Cart(props) {
               title={item.title}
               price={item.price}
               amount={item.amount}
+              onAdd={addItemHandler.bind(null, item)} //bind to each item
+              onRemove={removeItemHandler.bind(null, item.id)} //bind to each item
             />
           ))}
         </ul>

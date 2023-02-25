@@ -4,5 +4,5 @@ export default React.createContext({
   items: [],
   totalAmount: 0,
   addItem: (item) => {},
-  deleteItem: (id) => {},
+  removeItem: (id) => {},
 });

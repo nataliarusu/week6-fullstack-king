@@ -8,19 +8,29 @@ const defaultState = {
 
 const cartReducer = (state, action) => {
   if (action.type === 'ADD') {
-    let updatedItems;
-    const fruitInCart = state.items.find(
-      (fruit) => fruit.id === action.value.id
+    const updatedTotalAmount =
+      Math.round(
+        (state.totalAmount + action.value.price * action.value.amount) * 100
+      ) / 100;
+    const existingItemIndex = state.items.findIndex(
+      (item) => item.id === action.value.id
     );
-    const fruit = { ...action.value };
 
-    if (fruitInCart) {
-      fruitInCart.amount += action.value.amount;
+    let updatedItem;
+    let updatedItems;
+
+    if (existingItemIndex !== -1) {
+      const existingItem = state.items[existingItemIndex];
+      updatedItem = {
+        ...existingItem,
+        amount: existingItem.amount + action.value.amount,
+      };
       updatedItems = [...state.items];
+      updatedItems[existingItemIndex] = updatedItem;
     } else {
-      updatedItems = [...state.items, fruit]; //returns new array
+      updatedItems = [...state.items, action.value]; //returns new array
     }
-    const updatedTotalAmount = state.totalAmount + fruit.price * fruit.amount;
+
     return {
       //new state
       items: updatedItems,
@@ -28,6 +38,30 @@ const cartReducer = (state, action) => {
     };
   }
   if (action.type === 'REMOVE') {
+    const existingItemIndex = state.items.findIndex(
+      (item) => item.id === action.value
+    );
+    const existingItem = state.items[existingItemIndex];
+    const updatedTotalAmount =
+      Math.round((state.totalAmount - existingItem.price) * 100) / 100; //or with 1.20 it gave diff result
+
+    let updatedItems;
+
+    if (existingItem.amount === 1) {
+      updatedItems = state.items.filter((item) => item.id !== action.value); //remove item
+    } else {
+      const updatedItem = {
+        ...existingItem,
+        amount: existingItem.amount - 1,
+      };
+      updatedItems = [...state.items];
+      updatedItems[existingItemIndex] = updatedItem;
+    }
+
+    return {
+      items: updatedItems,
+      totalAmount: updatedTotalAmount,
+    };
   }
   return defaultState;
 };

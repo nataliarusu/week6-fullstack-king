@@ -1,6 +1,6 @@
-import Button from './UI/Button';
-import Card from './UI/Card';
-import Input from './UI/Input';
+import Button from '../UI/Button';
+import Card from '../UI/Card';
+import Input from '../UI/Input';
 import classes from './LogInForm.module.css';
 
 export default function LogInForm({ title, action, className }) {
