@@ -5,9 +5,8 @@ import { useState } from 'react';
 
 function Layout(props) {
   const [showCart, setShowCart] = useState(false);
-  const toggleShowCartHandler = (value) => {
+  const toggleShowCartHandler = () => {
     setShowCart(!showCart);
-    console.log(showCart);
   };
 
   return (

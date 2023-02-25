@@ -3,11 +3,29 @@ import Card from '../UI/Card';
 import Input from '../UI/Input';
 import classes from './LogInForm.module.css';
 
-export default function LogInForm({ title, action, className }) {
+export default function LogInForm({ title, onSubmitForm, action, className }) {
+  const submitFormHandler = (event) => {
+    event.preventDefault();
+    const [
+      enteredEmailInput,
+      enteredPasswordInput,
+      enteredConfirmPasswordInput,
+    ] = event.target;
+
+    const isValidInputs = true; // should implement logic to check inputs
+
+    if (isValidInputs) {
+      onSubmitForm({
+        email: enteredEmailInput.value,
+        password: enteredPasswordInput.value,
+        confirmPassword: enteredConfirmPasswordInput.value,
+      });
+    }
+  };
   return (
     <Card className={classes.login}>
       <h1 className={classes.title}>{title}</h1>
-      <form className={classes[className]} action={action} method="POST">
+      <form className={classes[className]} onSubmit={submitFormHandler}>
         <Input
           input={{
             id: 'email',
@@ -27,7 +45,7 @@ export default function LogInForm({ title, action, className }) {
           label="Password"
         />
 
-        {action === '/signup' && (
+        {action === 'signup' && (
           <Input
             input={{
               id: 'confirm-password',
@@ -39,9 +57,7 @@ export default function LogInForm({ title, action, className }) {
           />
         )}
 
-        <Button type="submit" className={classes['login-btn']}>
-          Submit
-        </Button>
+        <Button className={classes['login-btn']}>Submit</Button>
       </form>
     </Card>
   );
