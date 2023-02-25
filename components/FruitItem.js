@@ -10,7 +10,7 @@ export default function FruitItem(props) {
   const cartCTX = useContext(ctx);
 
   const AddToCartHandler = (amount) => {
-    const item = { ...props, amount: Number(amount) };
+    const item = { ...props, amount: amount };
 
     cartCTX.addItem(item);
   };

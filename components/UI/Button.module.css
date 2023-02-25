@@ -1,5 +1,5 @@
 .button {
-  background-color: #ca869c; /* Green */
+  background-color: var(--light-red); /* Green */
   border: none;
   border-radius: 5px;
   color: white;

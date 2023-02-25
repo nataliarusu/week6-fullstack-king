@@ -1,4 +1,4 @@
-import Cart from '@/components/Cart';
+import Cart from '@/components/Cart/Cart';
 import CartProvider from '@/store/ContextProvider';
 import Navigation from '../components/Navigation';
 import { useState } from 'react';

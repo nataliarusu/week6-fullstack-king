@@ -1,11 +1,11 @@
 import Button from './UI/Button';
 import Input from './UI/Input';
 import classes from './FruitItemForm.module.css';
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 
 export default function FruitItemForm(props) {
   const amountInputRef = useRef();
-
+  const [amountIsValid, setAmountIsValid] = useState(true);
   const inputValues = {
     id: `numb-of-items-${props.id}`,
     type: 'number',
@@ -17,22 +17,30 @@ export default function FruitItemForm(props) {
   };
   const addItemHandler = (event) => {
     event.preventDefault();
-    const inputAmount = amountInputRef.current.value;
+    const inputAmount = Number(amountInputRef.current.value.trim());
+    if (inputAmount === 0 || inputAmount > 10) {
+      setAmountIsValid(false);
+      return;
+    }
+
     props.onAddToCart(inputAmount);
   };
 
   return (
-    <form className={classes.addItem}>
-      <Input
-        input={inputValues}
-        label=""
-        className={classes.input}
-        ref={amountInputRef}
-      />
-      <Button type={'submit'} onClick={addItemHandler}>
-        Add
-      </Button>
-    </form>
+    <div>
+      <form className={classes.addItem}>
+        <Input
+          input={inputValues}
+          label=""
+          className={classes.input}
+          ref={amountInputRef}
+        />
+        <Button type={'submit'} onClick={addItemHandler}>
+          Add
+        </Button>
+      </form>
+      {!amountIsValid && <p>Please enter a valid amount 1 to 10.</p>}
+    </div>
   );
 }
 

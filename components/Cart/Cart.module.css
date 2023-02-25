@@ -3,7 +3,7 @@
   top: 5rem;
   right: 5rem;
   color: black;
-  width: 300px;
+  width: 350px;
 }
 .title {
   text-align: center;
@@ -19,4 +19,18 @@
 
 .total {
   font-weight: 700;
+  margin: 1rem 0;
+}
+.action {
+  display: flex;
+  justify-content: space-around;
+}
+
+.order {
+  background-color: #77002e;
+}
+.close {
+  background: white;
+  color: #77002e;
+  border: 1px solid #77002e;
 }
